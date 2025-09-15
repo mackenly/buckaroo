@@ -1,0 +1,380 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rust: #CE422B;
+  --color-rust-light: #F74C00;
+  --color-cloudflare: #F38020;
+  --color-primary: #F74C00;
+  --color-secondary: #CE422B;
+}
+
+/* Industrial/Military styling inspired by U.S. Graphics Company */
+body {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  letter-spacing: 0.025em;
+}
+
+/* Text transformation for industrial aesthetic */
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.military-heading {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+/* Custom industrial button styles */
+.industrial-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.industrial-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.industrial-button:hover::before {
+  left: 100%;
+}
+
+.industrial-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Subtle animations */
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animation classes */
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-slide-up-delay-1 {
+  animation: slide-up 0.6s ease-out 0.1s both;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slide-up 0.6s ease-out 0.2s both;
+}
+
+.animate-slide-up-delay-3 {
+  animation: slide-up 0.6s ease-out 0.3s both;
+}
+
+/* Hover effects for feature cards */
+.feature-card {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: #f97316 !important;
+}
+
+/* Monochrome icons */
+.icon-blazing {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-shield {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-globe {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Military Tech Background */
+.military-bg {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.military-bg::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  right: -200px;
+  bottom: -200px;
+  width: calc(100% + 400px);
+  height: calc(100% + 400px);
+  background-image: 
+    linear-gradient(rgba(251, 146, 60, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 146, 60, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(251, 146, 60, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 146, 60, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  animation: grid-move 30s linear infinite;
+  z-index: 1;
+  will-change: transform;
+}
+
+.military-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(251, 146, 60, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(251, 146, 60, 0.08) 0%, transparent 50%);
+  animation: pulse-glow-bg 8s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+/* Edge/Node visualization */
+.edge-nodes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.node {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 146, 60, 0.6);
+  border-radius: 50%;
+  animation: node-pulse 3s ease-in-out infinite;
+}
+
+.node::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  border-radius: 50%;
+  animation: node-expand 3s ease-in-out infinite;
+}
+
+.connection-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.4), transparent);
+  animation: connection-pulse 2s ease-in-out infinite;
+}
+
+@keyframes node-pulse {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes node-expand {
+  0% { 
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6;
+    transform: scale(2);
+  }
+  100% { 
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+@keyframes connection-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+/* Data flow particles */
+.data-flow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(251, 146, 60, 0.8);
+  border-radius: 50%;
+  animation: particle-flow 6s linear infinite;
+}
+
+@keyframes particle-flow {
+  0% {
+    transform: translateX(-10px) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 10px)) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+/* Circuit pattern overlay */
+.circuit-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.circuit-line {
+  position: absolute;
+  background: rgba(251, 146, 60, 0.3);
+  animation: circuit-glow 4s ease-in-out infinite;
+}
+
+@keyframes circuit-glow {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+
+/* Performance note: For better performance on lower-end devices, 
+   consider replacing the CSS grid animation with a canvas-based solution
+   or using CSS transforms with hardware acceleration */
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(100px, 100px); }
+}
+
+@keyframes pulse-glow-bg {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+/* Scanning line animation */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f97316, transparent);
+  animation: scan 8s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { 
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  80% { 
+    transform: translateY(80vh);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Button styles */
+.btn-link {
+  @apply text-gray-300 hover:text-orange-400 transition-colors font-mono text-sm tracking-wide px-3 py-1 relative overflow-hidden;
+}
+
+.btn-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-link:hover::before {
+  left: 100%;
+}
