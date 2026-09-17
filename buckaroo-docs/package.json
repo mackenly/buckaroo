@@ -41,7 +41,7 @@
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "prisma": "~6.8.2",
+    "prisma": "~7.10.0",
     "typescript": "^5.8.3",
     "vibe-rules": "^0.3.91",
     "vite": "^6.4.3",
